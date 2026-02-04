@@ -1,0 +1,9 @@
+trajectory:
+  name: Trajectory Team
+  title: Maintainers
+  url: https://github.com/dodgerbluee/trajectory
+  image_url: https://github.com/dodgerbluee.png
+  page: true
+  socials:
+    github: dodgerbluee
+

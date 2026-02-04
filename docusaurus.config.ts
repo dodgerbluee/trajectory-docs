@@ -18,12 +18,12 @@ const config: Config = {
   url: 'https://dodgerbluee.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/trajectory/',
+  baseUrl: '/trajectory-docs/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'dodgerbluee', // Usually your GitHub org/user name.
-  projectName: 'trajectory', // Usually your repo name.
+  projectName: 'trajectory-docs', // Usually your repo name.
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
 
@@ -47,7 +47,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/dodgerbluee/trajectory/tree/main/documentation/',
+            'https://github.com/dodgerbluee/trajectory-docs/tree/main/documentation/',
         },
         blog: {
           showReadingTime: true,
@@ -58,7 +58,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/dodgerbluee/trajectory/tree/main/documentation/',
+            'https://github.com/dodgerbluee/trajectory-docs/tree/main/documentation/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -123,7 +123,7 @@ const config: Config = {
         {to: '/blog', label: 'Blog', position: 'left'},
         {type: 'search', position: 'right'},
         {
-          href: 'https://github.com/dodgerbluee/trajectory',
+          href: 'https://github.com/dodgerbluee/trajectory-docs',
           label: 'GitHub',
           position: 'right',
         },

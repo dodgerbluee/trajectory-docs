@@ -39,6 +39,6 @@ Learn how to invite family members and manage shared access in the [Family & Use
 ## Getting Help
 
 If you run into any issues:
-- Check the [Troubleshooting Guide](../troubleshooting.md)
-- Review the [FAQ](../faq.md)
+- Check the [Troubleshooting Guide](./troubleshooting.md)
+- Review the [FAQ](./faq.md)
 - Open an issue on [GitHub](https://github.com/dodgerbluee/trajectory/issues)

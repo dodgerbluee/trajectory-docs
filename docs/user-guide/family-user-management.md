@@ -68,7 +68,7 @@ Currently, Trajectory uses a single-family model per instance. To manage multipl
    - Requires separate infrastructure
 
 :::info Future Feature
-Multi-family support within a single instance is planned for a future release. See the [roadmap](../blog/2026-02-04-welcome.md).
+Multi-family support within a single instance is planned for a future release.
 :::
 
 ---

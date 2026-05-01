@@ -182,8 +182,8 @@ docker-compose exec database psql -U trajectory_user -d trajectory
 Useful queries:
 
 ```sql
--- List all children
-SELECT * FROM children;
+-- List all people
+SELECT * FROM people;
 
 -- Count visits
 SELECT COUNT(*) FROM visits;

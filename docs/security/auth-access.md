@@ -29,7 +29,7 @@ sidebar_position: 2
 - All data scoped by family
 - Users can only access data for families they belong to
 - Children belong to a single family
-- Family membership required to view any child's data
+- Family membership required to view any person's data
 
 **Admin Controls:**
 - First registered user has admin privileges

@@ -49,7 +49,7 @@ Opens at `http://localhost:5017` with hot reload.
 ```
 frontend/src/
 ├── app/              # Main app components
-├── features/         # Feature modules (children, visits, etc.)
+├── features/         # Feature modules (people, visits, etc.)
 ├── shared/           # Shared components and utilities
 ├── contexts/         # React contexts (Auth, Config, etc.)
 ├── test/             # Test utilities
@@ -71,7 +71,7 @@ The frontend uses `fetch` API with context-based authentication:
 
 ```typescript
 // Example API call
-const response = await fetch('/api/children', {
+const response = await fetch('/api/people', {
   headers: {
     'Authorization': `Bearer ${accessToken}`,
     'Content-Type': 'application/json'

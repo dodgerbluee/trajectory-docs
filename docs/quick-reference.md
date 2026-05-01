@@ -153,26 +153,26 @@ Headers: Authorization: Bearer <token>
 ### Children
 
 ```bash
-# List children
-GET /api/children
+# List people
+GET /api/people
 Headers: Authorization: Bearer <token>
 
-# Create child
-POST /api/children
+# Create person
+POST /api/people
 Headers: Authorization: Bearer <token>
 Body: { name, dateOfBirth, sex, familyId }
 
-# Get child
-GET /api/children/:id
+# Get person
+GET /api/people/:id
 Headers: Authorization: Bearer <token>
 
-# Update child
-PUT /api/children/:id
+# Update person
+PUT /api/people/:id
 Headers: Authorization: Bearer <token>
 Body: { name, dateOfBirth, sex }
 
-# Delete child
-DELETE /api/children/:id
+# Delete person
+DELETE /api/people/:id
 Headers: Authorization: Bearer <token>
 ```
 
@@ -180,11 +180,11 @@ Headers: Authorization: Bearer <token>
 
 ```bash
 # List measurements
-GET /api/children/:childId/measurements
+GET /api/people/:personId/measurements
 Headers: Authorization: Bearer <token>
 
 # Create measurement
-POST /api/children/:childId/measurements
+POST /api/people/:personId/measurements
 Headers: Authorization: Bearer <token>
 Body: { measuredAt, heightCm, weightKg, headCircumferenceCm }
 ```
@@ -193,13 +193,13 @@ Body: { measuredAt, heightCm, weightKg, headCircumferenceCm }
 
 ```bash
 # List visits
-GET /api/visits?childId=:childId
+GET /api/visits?personId=:personId
 Headers: Authorization: Bearer <token>
 
 # Create visit
 POST /api/visits
 Headers: Authorization: Bearer <token>
-Body: { childId, date, type, notes }
+Body: { personId, date, type, notes }
 ```
 
 ## Common SQL Queries
@@ -212,29 +212,29 @@ SELECT COUNT(*) FROM users;
 SELECT * FROM families;
 
 -- Children per family
-SELECT f.name, COUNT(c.id) as child_count
+SELECT f.name, COUNT(c.id) as person_count
 FROM families f
-LEFT JOIN children c ON f.id = c.family_id
+LEFT JOIN people c ON f.id = c.family_id
 GROUP BY f.id, f.name;
 
 -- Recent visits
 SELECT c.name, v.date, v.type, v.notes
 FROM visits v
-JOIN children c ON v.child_id = c.id
+JOIN people c ON v.person_id = c.id
 ORDER BY v.date DESC
 LIMIT 10;
 
 -- Growth measurements
 SELECT c.name, m.measured_at, m.height_cm, m.weight_kg
 FROM measurements m
-JOIN children c ON m.child_id = c.id
-WHERE c.id = :child_id
+JOIN people c ON m.person_id = c.id
+WHERE c.id = :person_id
 ORDER BY m.measured_at DESC;
 
 -- Illness summary
 SELECT c.name, i.start_date, i.diagnosis, i.symptoms
 FROM illnesses i
-JOIN children c ON i.child_id = c.id
+JOIN people c ON i.person_id = c.id
 WHERE i.end_date IS NULL;  -- Current illnesses
 ```
 

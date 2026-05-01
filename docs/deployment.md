@@ -94,7 +94,7 @@ Trajectory **does not terminate TLS**. You must use a reverse proxy for HTTPS.
 
 Trajectory stores data in two places:
 
-1. **PostgreSQL Database** - All structured data (children, visits, measurements, etc.)
+1. **PostgreSQL Database** - All structured data (people, visits, measurements, etc.)
 2. **File Volumes** - Uploaded attachments and avatars
 
 ### Database Backup

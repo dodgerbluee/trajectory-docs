@@ -14,7 +14,7 @@ This guide covers the essentials for running Trajectory in production: backups, 
 
 Trajectory stores data in two places:
 
-1. **PostgreSQL Database** - All structured data (children, visits, measurements, etc.)
+1. **PostgreSQL Database** - All structured data (people, visits, measurements, etc.)
 2. **File Volumes** - Uploaded attachments and avatars
 
 ### Database Backup

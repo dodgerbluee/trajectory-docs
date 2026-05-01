@@ -93,41 +93,41 @@ erDiagram
 
 **families**
 - Represents a household or family unit
-- One family can have multiple users and children
+- One family can have multiple users and people
 - All data is scoped by family
 
 **family_members**
 - Junction table linking users to families
 - Defines user-family relationships
 
-**children**
-- Stores child profile information
+**people**
+- Stores person profile information
 - Belongs to exactly one family
 - Has: name, date of birth, sex, avatar
 
 **visits**
 - Medical appointments: wellness, sick, injury, vision
-- Links to a child
+- Links to a person
 - Stores: date, type, notes, attachments
 
 **measurements**
 - Growth tracking: height, weight, head circumference
-- Links to a child
+- Links to a person
 - Can be associated with a visit
 
 **medical_events**
 - Vaccines, procedures, medications
-- Links to a child
+- Links to a person
 - Stores: date, event type, description
 
 **illnesses**
 - Illness episodes with symptoms and treatments
-- Links to a child
+- Links to a person
 - Tracks: start/end dates, symptoms, medications, fever
 
 **attachments**
 - File uploads (images, PDFs, etc.)
-- Can be linked to: children, visits, measurements
+- Can be linked to: people, visits, measurements
 - Stored in Docker volumes
 
 **refresh_tokens**
@@ -183,7 +183,7 @@ All sensitive data is scoped by family:
 
 ```typescript
 // Example authorization check
-if (!child.family_id || !user.family_ids.includes(child.family_id)) {
+if (!person.family_id || !user.family_ids.includes(person.family_id)) {
   return res.status(403).json({ error: 'Access denied' });
 }
 ```
@@ -213,14 +213,14 @@ if (!child.family_id || !user.family_ids.includes(child.family_id)) {
 ### REST API Design
 
 ```
-GET    /api/children              - List children
-POST   /api/children              - Create child
-GET    /api/children/:id          - Get child
-PUT    /api/children/:id          - Update child
-DELETE /api/children/:id          - Delete child
+GET    /api/people              - List people
+POST   /api/people              - Create person
+GET    /api/people/:id          - Get person
+PUT    /api/people/:id          - Update person
+DELETE /api/people/:id          - Delete person
 
-GET    /api/children/:id/measurements  - List measurements
-POST   /api/children/:id/measurements  - Create measurement
+GET    /api/people/:id/measurements  - List measurements
+POST   /api/people/:id/measurements  - Create measurement
 ...
 ```
 
@@ -257,7 +257,7 @@ POST   /api/children/:id/measurements  - Create measurement
 
 ```
 Client
-  └─> POST /api/children/:id/avatar (multipart/form-data)
+  └─> POST /api/people/:id/avatar (multipart/form-data)
       └─> Multer Middleware
           ├─> Validate file type
           ├─> Validate file size
@@ -356,10 +356,10 @@ Key indexes for performance:
 
 ```sql
 -- Frequently queried fields
-CREATE INDEX idx_children_family_id ON children(family_id);
-CREATE INDEX idx_visits_child_id ON visits(child_id);
-CREATE INDEX idx_measurements_child_id ON measurements(child_id);
-CREATE INDEX idx_illnesses_child_id ON illnesses(child_id);
+CREATE INDEX idx_people_family_id ON people(family_id);
+CREATE INDEX idx_visits_person_id ON visits(person_id);
+CREATE INDEX idx_measurements_person_id ON measurements(person_id);
+CREATE INDEX idx_illnesses_person_id ON illnesses(person_id);
 
 -- For date range queries
 CREATE INDEX idx_visits_date ON visits(date);

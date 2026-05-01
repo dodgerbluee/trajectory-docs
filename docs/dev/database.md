@@ -48,7 +48,7 @@ touch backend/migrations/$(date +%Y%m%d-%H%M%S)-description.sql
 
 ```sql
 -- Migration: Add new column
-ALTER TABLE children ADD COLUMN IF NOT EXISTS new_field VARCHAR(255);
+ALTER TABLE people ADD COLUMN IF NOT EXISTS new_field VARCHAR(255);
 ```
 
 3. **Test migration:**

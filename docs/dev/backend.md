@@ -80,7 +80,7 @@ The backend exposes these main routes:
 | Route | Description |
 |-------|-------------|
 | `/api/auth/*` | Authentication (register, login, refresh) |
-| `/api/children` | Children CRUD |
+| `/api/people` | Children CRUD |
 | `/api/visits` | Medical visits |
 | `/api/illnesses` | Illness tracking |
 | `/api/measurements` | Growth measurements |
